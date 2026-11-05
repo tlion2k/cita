@@ -1,0 +1,7 @@
+{
+  "name": "cita",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
