@@ -61,6 +61,7 @@ export class CitasService {
           frase TEXT NOT NULL,
           autor TEXT NOT NULL
         );`);
+      // DATOS DE PRUEBA: comenta la línea de abajo para desactivarlos.
       await this.sembrarDatosDePrueba();
       this.resolverListo();
     } catch (e) {
