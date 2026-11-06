@@ -10,6 +10,8 @@ import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular';
 
 import { AppComponent } from './app/app.component';
 import { routes } from './app/app.routes';
+import { defineCustomElements as jeepSqlite } from 'jeep-sqlite/loader';
+jeepSqlite();
 
 bootstrapApplication(AppComponent, {
   providers: [

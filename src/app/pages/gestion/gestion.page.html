@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Gestionar citas</ion-title>
+    <ion-buttons slot="start"><ion-back-button defaultHref="/inicio"></ion-back-button></ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <app-cita-form (agregar)="agregar($event)"></app-cita-form>
+
+  @for (c of citas; track c.id) {
+    <app-cita-card [cita]="c" [permitirBorrar]="true" (borrar)="eliminar($event)"></app-cita-card>
+  } @empty {
+    <p>No hay citas guardadas.</p>
+  }
+</ion-content>

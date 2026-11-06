@@ -1,0 +1,11 @@
+<ion-header><ion-toolbar>
+  <ion-buttons slot="start"><ion-back-button defaultHref="/inicio"></ion-back-button></ion-buttons>
+  <ion-title>Configuración</ion-title>
+</ion-toolbar></ion-header>
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-toggle [checked]="borrarEnInicio" (ionChange)="cambiar($event)">
+      ¿Desea poder borrar citas en el inicio (frase aleatoria)?
+    </ion-toggle>
+  </ion-item>
+</ion-content>

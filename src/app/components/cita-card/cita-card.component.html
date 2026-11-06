@@ -1,0 +1,11 @@
+<ion-card>
+  <ion-card-content>
+    <p>“{{ cita.frase }}”</p>
+    <ion-card-subtitle>— {{ cita.autor }}</ion-card-subtitle>
+    @if (permitirBorrar) {
+      <ion-button fill="clear" color="danger" (click)="alBorrar()">
+        <ion-icon slot="start" name="trash-outline"></ion-icon> Borrar
+      </ion-button>
+    }
+  </ion-card-content>
+</ion-card>

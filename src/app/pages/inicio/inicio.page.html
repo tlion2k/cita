@@ -1,0 +1,16 @@
+
+<ion-header><ion-toolbar>
+  <ion-title>Citas famosas</ion-title>
+  <ion-buttons slot="end">
+    <ion-button routerLink="/gestion">Gestionar</ion-button>
+    <ion-button routerLink="/configuracion">Ajustes</ion-button>
+  </ion-buttons>
+</ion-toolbar></ion-header>
+<ion-content class="ion-padding">
+  @if (cita) {
+    <app-cita-card [cita]="cita" [permitirBorrar]="puedeBorrar" (borrar)="borrar($event)"></app-cita-card>
+  } @else {
+    <p>No hay citas. Agrega una en “Gestionar”.</p>
+  }
+  <ion-button expand="block" (click)="ionViewWillEnter()">Otra cita</ion-button>
+</ion-content>
