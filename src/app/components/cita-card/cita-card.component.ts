@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IonButton, IonCard, IonCardContent, IonCardSubtitle, IonIcon } from '@ionic/angular';
+import { AlertController, IonButton, IonCard, IonCardContent, IonCardSubtitle, IonIcon } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { trashOutline } from 'ionicons/icons';
 import { Cita } from '../../models/cita.model';
@@ -17,8 +17,22 @@ export class CitaCardComponent  {
   @Input() permitirBorrar = false;
   @Output() borrar = new EventEmitter<number>();
 
-  constructor() { addIcons({ trashOutline }); }
+  constructor(private alertCtrl: AlertController) { addIcons({ trashOutline }); }
 
-  alBorrar() { if (this.cita.id !== undefined) this.borrar.emit(this.cita.id); }
+  /** Pide confirmación; solo emite `borrar` si el usuario responde "Sí". */
+  async alBorrar() {
+    const id = this.cita.id;
+    if (id === undefined) return;
+
+    const alerta = await this.alertCtrl.create({
+      header: 'Eliminar cita',
+      message: '¿Seguro que quieres eliminar esta cita?',
+      buttons: [
+        { text: 'No', role: 'cancel' },
+        { text: 'Sí', role: 'confirm', handler: () => this.borrar.emit(id) },
+      ],
+    });
+    await alerta.present();
+  }
 
 }

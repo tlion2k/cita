@@ -1,0 +1,21 @@
+/* Cita a la izquierda, icono de borrar a la derecha. */
+.fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.texto {
+  flex: 1;       /* ocupa todo el espacio disponible y empuja el botón a la derecha */
+  min-width: 0;  /* permite que las frases largas se ajusten en varias líneas */
+
+  p {
+    margin: 0 0 4px;
+  }
+}
+
+ion-button {
+  flex-shrink: 0; /* el icono no se encoge */
+  margin: 0;
+}

@@ -62,7 +62,7 @@ export class CitasService {
           autor TEXT NOT NULL
         );`);
       // DATOS DE PRUEBA: comenta la línea de abajo para desactivarlos.
-      await this.sembrarDatosDePrueba();
+      //await this.sembrarDatosDePrueba();
       this.resolverListo();
     } catch (e) {
       console.error('[CitasService] Falló la apertura de la BD', e);
